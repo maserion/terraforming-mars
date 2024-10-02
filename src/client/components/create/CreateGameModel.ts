@@ -64,7 +64,8 @@ export type CreateGameModel = {
   startingCeos: number;
   startingCorporations: number;
   startingPreludes: number;
-  starWarsExpansion: boolean,
+  preludesToPlay: number;
+  starWarsExpansion: boolean;
   turmoil: boolean;
   twoCorpsVariant: boolean;
   underworldExpansion: boolean,

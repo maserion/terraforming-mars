@@ -719,6 +719,7 @@ const stored = {
     'startingCeos': 3,
     'startingCorporations': 2,
     'startingPreludes': 4,
+    'preludesToPlay': 2,
     'starWarsExpansion': false,
     'turmoilExtension': false,
     'underworldExpansion': false,

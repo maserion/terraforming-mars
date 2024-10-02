@@ -167,6 +167,7 @@ export class GameHandler extends Handler {
             startingCeos: gameReq.startingCeos,
             startingCorporations: gameReq.startingCorporations,
             startingPreludes: gameReq.startingPreludes,
+            preludesToPlay: gameReq.preludesToPlay,
             starWarsExpansion: gameReq.starWarsExpansion,
             turmoilExtension: gameReq.turmoil,
             twoCorpsVariant: gameReq.twoCorpsVariant,

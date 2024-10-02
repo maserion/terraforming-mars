@@ -199,6 +199,14 @@
                               </label>
                             </template>
 
+                            <template v-if="prelude">
+                              <label for="preludesToPlayENum-checkbox">
+                              <div class="create-game-expansion-icon expansion-icon-prelude"></div>
+                              <input type="number" class="create-game-corporations-count" value="2" min="1" :max="4" v-model="preludesToPlay" id="preludesToPlayNum-checkbox">
+                                  <span v-i18n>Preludes To Play</span>
+                              </label>
+                            </template>
+
                             <template v-if="ceoExtension">
                               <label for="startingCEONum-checkbox">
                               <div class="create-game-expansion-icon expansion-icon-ceo"></div>
@@ -654,6 +662,7 @@ export default (Vue as WithRefs<Refs>).extend({
       customCeos: [],
       startingCeos: 3,
       startingPreludes: 4,
+      preludesToPlay: 2,
       starWarsExpansion: false,
       underworldExpansion: false,
       preludeDraftVariant: undefined,
@@ -1073,6 +1082,7 @@ export default (Vue as WithRefs<Refs>).extend({
       const customCeos = this.customCeos;
       const startingCeos = this.startingCeos;
       const startingPreludes = this.startingPreludes;
+      const preludesToPlay = this.preludesToPlay;
       let clonedGamedId: undefined | GameId = undefined;
 
       // Check custom colony count
@@ -1245,6 +1255,7 @@ export default (Vue as WithRefs<Refs>).extend({
         customCeos,
         startingCeos,
         startingPreludes,
+        preludesToPlay,
         starWarsExpansion: this.starWarsExpansion,
         underworldExpansion: this.underworldExpansion,
       };

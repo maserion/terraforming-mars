@@ -35,15 +35,17 @@ export class SelectInitialCards extends OptionsInput<undefined> {
     }
 
     if (game.gameOptions.preludeExtension) {
+      const preludeLimit = game.gameOptions.preludesToPlay;
       this.options.push(
-        new SelectCard(titles.SELECT_PRELUDE_TITLE, undefined, player.dealtPreludeCards, {min: 2, max: 2})
-          .andThen((preludeCards) => {
-            if (preludeCards.length !== 2) {
-              throw new InputError('Only select 2 preludes');
-            }
-            player.preludeCardsInHand.push(...preludeCards);
-            return undefined;
-          }));
+          new SelectCard(titles.SELECT_PRELUDE_TITLE, undefined, player.dealtPreludeCards, {min: preludeLimit, max: preludeLimit}
+          ).andThen((preludeCards) => {
+              if (preludeCards.length != preludeLimit) {
+                  throw new InputError(`Only select ${game.gameOptions.preludesToPlay} preludes`);
+              }
+              player.preludeCardsInHand.push(...preludeCards);
+              return undefined;
+          })
+      );
     }
 
     if (game.gameOptions.ceoExtension) {

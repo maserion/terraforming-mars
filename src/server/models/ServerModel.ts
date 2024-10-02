@@ -399,6 +399,7 @@ export class Server {
       preludeDraftVariant: options.preludeDraftVariant,
       preludeExtension: options.preludeExtension,
       prelude2Expansion: options.prelude2Expansion,
+      preludesToPlay: options.preludesToPlay,
       promoCardsOption: options.promoCardsOption,
       politicalAgendasExtension: options.politicalAgendasExtension,
       removeNegativeGlobalEvents: options.removeNegativeGlobalEventsOption,

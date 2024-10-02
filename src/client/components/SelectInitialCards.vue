@@ -264,23 +264,21 @@ export default (Vue as WithRefs<Refs>).extend({
     calcuateWarning(): boolean {
       // Start with warning being empty.
       this.warning = undefined;
-      if (this.selectedCorporations.length === 0) {
-        this.warning = 'Select a corporation';
-        return false;
-      }
+      const preludeLimit = this.playerView.game.gameOptions.preludesToPlay ?? 2;
+
       if (this.selectedCorporations.length > 1) {
         this.warning = 'You selected too many corporations';
         return false;
       }
       if (this.hasPrelude) {
-        if (this.selectedPreludes.length < 2) {
-          this.warning = 'Select 2 preludes';
+        if (this.selectedPreludes.length < preludeLimit) {
+          this.warning = 'Select more preludes';
           return false;
         }
-        if (this.selectedPreludes.length > 2) {
-          this.warning = 'You selected too many preludes';
-          return false;
-        }
+        if (this.selectedPreludes.length > preludeLimit) {
+        this.warning = `You selected too many preludes. The maximum allowed is ${preludeLimit}.`;
+        return false;
+      }
       }
       if (this.hasCeo) {
         if (this.selectedCeos.length < 1) {

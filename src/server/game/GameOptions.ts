@@ -56,6 +56,7 @@ export type GameOptions = {
   startingCeos: number;
   // TODO(maserion): Remove '?' by 2025-01-01
   startingPreludes?: number;
+  preludesToPlay?: number;
   /** Moon must be completed to end the game */
   requiresMoonTrackCompletion: boolean;
   /** Venus must be completed to end the game */
@@ -120,6 +121,7 @@ export const DEFAULT_GAME_OPTIONS: GameOptions = {
   startingCeos: 3,
   startingCorporations: 2,
   startingPreludes: 4,
+  preludesToPlay: 2,
   starWarsExpansion: false,
   turmoilExtension: false,
   underworldExpansion: false,
