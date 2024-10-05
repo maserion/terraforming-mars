@@ -265,7 +265,10 @@ export default (Vue as WithRefs<Refs>).extend({
       // Start with warning being empty.
       this.warning = undefined;
       const preludeLimit = this.playerView.game.gameOptions.preludesToPlay ?? 2;
-
+      if (this.selectedCorporations.length === 0) {
+        this.warning = 'Select a corporation';
+        return false;
+      }
       if (this.selectedCorporations.length > 1) {
         this.warning = 'You selected too many corporations';
         return false;
